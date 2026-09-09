@@ -2,6 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
+      "source": "/sso/start",
+      "destination": "/index.html"
+    },
+    {
       "source": "/api/auth/:path*",
       "destination": "https://khiladi-identity-api.onrender.com/api/auth/:path*"
     },
