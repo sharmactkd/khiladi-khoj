@@ -1,0 +1,25 @@
+.sso-page { min-height: 100vh; display: grid; place-items: center; padding: 28px; color: #07101f; background: radial-gradient(circle at 50% 0, #17365f 0, #081526 34%, #030812 78%); font-family: Inter, system-ui, sans-serif; }
+.sso-card { width: min(100%, 470px); padding: 38px; border: 1px solid #ffffff24; border-radius: 20px; background: #fff; box-shadow: 0 28px 90px #0009; text-align: center; }
+.sso-logo { width: 64px; height: 64px; object-fit: contain; }
+.sso-eyebrow { margin: 16px 0 7px; color: #d71936; font: 800 13px/1.2 "Barlow Condensed", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+.sso-card h1 { margin: 0; color: #07101f; font: 800 clamp(27px, 5vw, 36px)/1.08 "Barlow Condensed", sans-serif; }
+.sso-copy { margin: 16px auto 25px; max-width: 370px; color: #667085; font-size: 14px; line-height: 1.65; }
+.sso-status { margin: 22px 0; color: #475467; font-weight: 700; }
+.sso-google-slot { min-height: 44px; display: flex; justify-content: center; }
+.sso-note { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 16px 0 0; color: #667085; font-size: 12px; }
+.sso-note svg { width: 16px; color: #15803d; }
+.sso-user { display: flex; align-items: center; gap: 13px; padding: 14px; border: 1px solid #dfe5ed; border-radius: 12px; background: #f8fafc; text-align: left; }
+.sso-user > img, .sso-user > svg { width: 46px; height: 46px; flex: 0 0 46px; border-radius: 50%; }
+.sso-user > svg { padding: 10px; background: #e8edf4; }
+.sso-user div { min-width: 0; display: grid; gap: 4px; }
+.sso-user strong, .sso-user span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sso-user strong { font-size: 14px; }
+.sso-user span { color: #667085; font-size: 12px; }
+.sso-continue { width: 100%; min-height: 48px; margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 9px; border: 0; border-radius: 10px; color: #fff; background: #d71936; cursor: pointer; font-weight: 800; }
+.sso-continue:hover:not(:disabled) { background: #b8122c; }
+.sso-continue:disabled { cursor: wait; opacity: .7; }
+.sso-continue svg { width: 18px; }
+.sso-error { margin: 17px 0 0; padding: 11px; border: 1px solid #fecdd3; border-radius: 9px; color: #9f1239; background: #fff1f2; font-size: 13px; line-height: 1.45; }
+.sso-cancel { display: inline-block; margin-top: 22px; color: #667085; font-size: 12px; font-weight: 700; text-decoration: none; }
+.sso-cancel:hover { color: #07101f; }
+@media (max-width: 540px) { .sso-page { padding: 16px; } .sso-card { padding: 28px 20px; } }

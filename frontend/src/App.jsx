@@ -6,6 +6,7 @@ import khiladiShield from "./assets/brand/khiladi-shield.png";
 import "./App.css";
 import "./ProductBackgrounds.css";
 import IdentityMenu from "./components/auth/IdentityMenu";
+import SsoStart from "./components/auth/SsoStart";
 
 const products = [
   { id:"academy", number:"01", label:"Academy operations", title:"KHILADI Academy Manager", icon:Users, url:site.academyUrl, description:"Students, attendance, fees, batches and memberships—managed beautifully in one secure workspace.", features:[[Users,"Student records"],[CalendarCheck2,"Smart attendance"],[CreditCard,"Fees & memberships"],[BarChart3,"Reports & insights"]] },
@@ -32,6 +33,7 @@ function ProductCard({product}) {
 }
 
 function App() {
+  if (window.location.pathname === "/sso/start") return <SsoStart/>;
   return <><Helmet><title>KHILADI | Sports Management Ecosystem</title><meta name="description" content="Professional academy and tournament management tools for the martial arts community."/><meta name="theme-color" content="#050b16"/></Helmet><a className="skip" href="#main">Skip to content</a><Header/><main id="main"><Hero/><section className="products" id="solutions"><div className="container"><div className="section-title"><p>Purpose-built solutions</p><h2>Choose your arena</h2><span>Two focused products. One consistent KHILADI experience.</span></div><div className="product-grid">{products.map(product=><ProductCard key={product.id} product={product}/>)}</div></div></section><section className="benefits"><div className="container"><h2>Everything martial arts needs. <span>Finally connected.</span></h2><div className="benefit-grid"><article><ShieldCheck/><div><h3>Secure by design</h3><p>Privacy and modern safeguards at the core.</p></div></article><article><Cloud/><div><h3>Cloud-powered</h3><p>Access professional tools wherever you work.</p></div></article><article><Sparkles/><div><h3>Consistent experience</h3><p>One premium ecosystem across products.</p></div></article><article><BarChart3/><div><h3>Built to scale</h3><p>From local academies to major events.</p></div></article></div></div></section></main><footer><div className="container footer-inner"><Brand/><p>Stronger athletes. Smarter academies. Better tournaments.</p><small>© {new Date().getFullYear()} KHILADI</small></div></footer></>;
 }
 

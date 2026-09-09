@@ -35,3 +35,10 @@ export const logoutIdentity = () =>
     method: "POST",
     headers: { "X-Khiladi-Request": "identity-v1" },
   });
+
+export const authorizeProduct = ({ product, redirectUri, codeChallenge, state }) =>
+  request("/api/sso/authorize", {
+    method: "POST",
+    headers: { "X-Khiladi-Request": "identity-v1" },
+    body: JSON.stringify({ product, redirectUri, codeChallenge, state }),
+  });
