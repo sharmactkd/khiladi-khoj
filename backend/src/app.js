@@ -12,6 +12,7 @@ import { errorMiddleware } from "./middlewares/errorMiddleware.js";
 import { notFoundMiddleware } from "./middlewares/notFoundMiddleware.js";
 import healthRouter from "./routes/healthRoutes.js";
 import authRouter from "./routes/authRoutes.js";
+import ssoRouter from "./routes/ssoRoutes.js";
 
 const app = express();
 
@@ -64,6 +65,7 @@ app.use(
 
 app.use("/api/health", healthRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/sso", ssoRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);

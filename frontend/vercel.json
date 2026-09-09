@@ -4,11 +4,24 @@
     {
       "source": "/api/auth/:path*",
       "destination": "https://khiladi-identity-api.onrender.com/api/auth/:path*"
+    },
+    {
+      "source": "/api/sso/:path*",
+      "destination": "https://khiladi-identity-api.onrender.com/api/sso/:path*"
     }
   ],
   "headers": [
     {
       "source": "/api/auth/:path*",
+      "headers": [
+        {
+          "key": "x-vercel-enable-rewrite-caching",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "source": "/api/sso/:path*",
       "headers": [
         {
           "key": "x-vercel-enable-rewrite-caching",
