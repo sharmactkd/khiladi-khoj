@@ -1,5 +1,6 @@
 ﻿import compression from "compression";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import express from "express";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
@@ -10,6 +11,7 @@ import { logger } from "./config/logger.js";
 import { errorMiddleware } from "./middlewares/errorMiddleware.js";
 import { notFoundMiddleware } from "./middlewares/notFoundMiddleware.js";
 import healthRouter from "./routes/healthRoutes.js";
+import authRouter from "./routes/authRoutes.js";
 
 const app = express();
 
@@ -35,15 +37,16 @@ app.use(
       error.statusCode = 403;
       callback(error);
     },
-    credentials: false,
-    methods: ["GET", "OPTIONS"],
-    allowedHeaders: ["Accept", "Content-Type"],
+    credentials: true,
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Accept", "Content-Type", "X-Khiladi-Request"],
     maxAge: 86400,
   }),
 );
 
 app.use(express.json({ limit: "32kb" }));
 app.use(express.urlencoded({ extended: false, limit: "32kb" }));
+app.use(cookieParser());
 
 app.use(
   "/api",
@@ -60,6 +63,7 @@ app.use(
 );
 
 app.use("/api/health", healthRouter);
+app.use("/api/auth", authRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);

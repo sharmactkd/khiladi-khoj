@@ -38,6 +38,12 @@ export const env = Object.freeze({
   JWT_ACCESS_SECRET: readSecret("JWT_ACCESS_SECRET"),
   SESSION_TOKEN_PEPPER: readSecret("SESSION_TOKEN_PEPPER"),
   AUTH_CODE_PEPPER: readSecret("AUTH_CODE_PEPPER"),
+  GOOGLE_CLIENT_ID: readSecret("GOOGLE_CLIENT_ID"),
+  IDENTITY_COOKIE_NAME:
+    readSecret("IDENTITY_COOKIE_NAME") ||
+    (nodeEnv === "production"
+      ? "__Host-khiladi_identity"
+      : "khiladi_identity_dev"),
   ACCESS_TOKEN_TTL_MINUTES: parsePositiveInteger(
     "ACCESS_TOKEN_TTL_MINUTES",
     10,
@@ -52,6 +58,7 @@ export const assertIdentityRuntimeConfiguration = () => {
     "JWT_ACCESS_SECRET",
     "SESSION_TOKEN_PEPPER",
     "AUTH_CODE_PEPPER",
+    "GOOGLE_CLIENT_ID",
   ];
 
   const missing = required.filter((name) => !env[name]);
