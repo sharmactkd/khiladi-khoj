@@ -1,0 +1,19 @@
+{
+  "name": "khiladi-khoj",
+  "version": "1.0.0",
+  "description": "KHILADI sports management ecosystem",
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "lint:frontend": "npm --prefix frontend run lint",
+    "dev:backend": "npm --prefix backend run dev",
+    "start:backend": "npm --prefix backend start",
+    "test:backend": "npm --prefix backend test",
+    "audit:all": "npm audit --prefix frontend && npm audit --prefix backend"
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": "24.x"
+  }
+}

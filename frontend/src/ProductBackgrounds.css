@@ -1,0 +1,90 @@
+.hero-bg {
+  background-image:
+    linear-gradient(90deg, rgba(4, 10, 20, 0.99) 0%, rgba(4, 10, 20, 0.9) 35%, rgba(4, 10, 20, 0.16) 68%, rgba(4, 10, 20, 0.08) 100%),
+    linear-gradient(0deg, rgba(4, 10, 20, 0.58), transparent 52%),
+    url("./assets/hero-stadium.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.brand-logo {
+  width: 51px;
+  height: 51px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 9px rgba(0, 0, 0, 0.38));
+}
+
+@media (min-width: 901px) {
+  .hero,
+  .hero-inner {
+    min-height: 740px;
+  }
+}
+
+.products {
+  position: relative;
+  z-index: 3;
+  margin-top: -120px;
+  padding: 0 0 42px;
+  background: linear-gradient(to bottom, transparent 0, transparent 120px, #ffffff 120px, #f6f8fb 100%);
+}
+
+.section-title { display: none; }
+.product { min-height: 355px; }
+
+.product.academy {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(90deg, #ffffff 0%, #ffffff 43%, rgba(255, 255, 255, 0.96) 53%, rgba(255, 255, 255, 0.42) 72%, rgba(255, 255, 255, 0.06) 100%),
+    url("./assets/products/academy-manager-bg.webp");
+  background-position: center, calc(100% + 140px) center;
+  background-repeat: no-repeat;
+  background-size: cover, auto 100%;
+}
+
+.academy .product-title { max-width: 88%; }
+.academy .product-title p { max-width: 440px; }
+
+.product.tournament {
+  background-image:
+    linear-gradient(90deg, rgba(5, 11, 22, 0.97) 0%, rgba(7, 20, 38, 0.82) 50%, rgba(7, 20, 38, 0.22) 100%),
+    url("./assets/products/tournament-manager-bg.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width: 900px) {
+  .products {
+    margin-top: -110px;
+    background: linear-gradient(to bottom, transparent 0, transparent 110px, #ffffff 110px, #f6f8fb 100%);
+  }
+}
+
+@media (max-width: 720px) {
+  .brand-logo { width: 43px; height: 43px; }
+  .hero-bg {
+    background-image:
+      linear-gradient(90deg, rgba(4, 10, 20, 0.96), rgba(4, 10, 20, 0.48)),
+      linear-gradient(0deg, rgba(4, 10, 20, 0.78), transparent 55%),
+      url("./assets/hero-stadium.webp");
+    background-position: 64% center;
+  }
+
+  .products {
+    margin-top: -65px;
+    background: linear-gradient(to bottom, transparent 0, transparent 65px, #ffffff 65px, #f6f8fb 100%);
+  }
+
+  .product.academy {
+    background-image:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.68)),
+      url("./assets/products/academy-manager-bg.webp");
+  }
+
+  .product.tournament {
+    background-image:
+      linear-gradient(90deg, rgba(5, 11, 22, 0.97), rgba(7, 20, 38, 0.55)),
+      url("./assets/products/tournament-manager-bg.webp");
+  }
+}
