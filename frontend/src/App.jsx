@@ -5,6 +5,7 @@ import { site } from "./config/site";
 import khiladiShield from "./assets/brand/khiladi-shield.png";
 import "./App.css";
 import "./ProductBackgrounds.css";
+import IdentityMenu from "./components/auth/IdentityMenu";
 
 const products = [
   { id:"academy", number:"01", label:"Academy operations", title:"KHILADI Academy Manager", icon:Users, url:site.academyUrl, description:"Students, attendance, fees, batches and memberships—managed beautifully in one secure workspace.", features:[[Users,"Student records"],[CalendarCheck2,"Smart attendance"],[CreditCard,"Fees & memberships"],[BarChart3,"Reports & insights"]] },
@@ -18,7 +19,7 @@ function Brand() {
 function Header() {
   const [open,setOpen]=useState(false);
   useEffect(()=>{const close=(event)=>event.key==="Escape"&&setOpen(false);window.addEventListener("keydown",close);return()=>window.removeEventListener("keydown",close)},[]);
-  return <header className="header"><div className="container header-inner"><Brand/><button className="menu" onClick={()=>setOpen(!open)} aria-expanded={open} aria-controls="nav" aria-label={open?"Close menu":"Open menu"}>{open?<X/>:<Menu/>}</button><nav id="nav" className={open?"nav open":"nav"} aria-label="Primary"><a href="#platform" onClick={()=>setOpen(false)}>Platform</a><a href="#solutions" onClick={()=>setOpen(false)}>Solutions</a><a href="#academy" onClick={()=>setOpen(false)}>For Academies</a><a href="#tournament" onClick={()=>setOpen(false)}>For Organizers</a><a className="nav-cta" href="#solutions" onClick={()=>setOpen(false)}>Explore products</a></nav></div></header>;
+  return <header className="header"><div className="container header-inner"><Brand/><button className="menu" onClick={()=>setOpen(!open)} aria-expanded={open} aria-controls="nav" aria-label={open?"Close menu":"Open menu"}>{open?<X/>:<Menu/>}</button><nav id="nav" className={open?"nav open":"nav"} aria-label="Primary"><a href="#platform" onClick={()=>setOpen(false)}>Platform</a><a href="#solutions" onClick={()=>setOpen(false)}>Solutions</a><a href="#academy" onClick={()=>setOpen(false)}>For Academies</a><a href="#tournament" onClick={()=>setOpen(false)}>For Organizers</a><IdentityMenu onNavigate={()=>setOpen(false)}/><a className="nav-cta" href="#solutions" onClick={()=>setOpen(false)}>Explore products</a></nav></div></header>;
 }
 
 function Hero() {
