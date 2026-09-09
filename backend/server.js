@@ -1,8 +1,12 @@
 ﻿import http from "node:http";
 
 import app from "./src/app.js";
-import { env } from "./src/config/env.js";
+import { connectDatabase, disconnectDatabase } from "./src/config/database.js";
+import { assertIdentityRuntimeConfiguration, env } from "./src/config/env.js";
 import { logger } from "./src/config/logger.js";
+
+assertIdentityRuntimeConfiguration();
+await connectDatabase();
 
 const server = http.createServer(app);
 
@@ -19,12 +23,13 @@ server.listen(env.PORT, () => {
 function shutdown(signal) {
   logger.info({ signal }, "Graceful shutdown started");
 
-  server.close((error) => {
+  server.close(async (error) => {
     if (error) {
       logger.error({ error }, "Server shutdown failed");
       process.exitCode = 1;
     }
 
+    await disconnectDatabase();
     process.exit();
   });
 
