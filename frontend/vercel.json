@@ -1,5 +1,17 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/register",
+      "destination": "https://tournaments.khiladi-khoj.com/register",
+      "permanent": true
+    },
+    {
+      "source": "/login",
+      "destination": "https://tournaments.khiladi-khoj.com/login",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/sso/start",
