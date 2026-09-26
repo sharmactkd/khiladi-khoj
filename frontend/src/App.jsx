@@ -29,7 +29,8 @@ function Hero() {
 
 function ProductCard({product}) {
   const MainIcon=product.icon;
-  return <article className={`product ${product.id}`} id={product.id}><p className="product-label">{product.number} / {product.label}</p><div className="product-title"><span><MainIcon/></span><div><h2>{product.title}</h2><p>{product.description}</p></div></div><ul className="features">{product.features.map(([Icon,label])=><li key={label}><Icon/><span>{label}</span></li>)}</ul><a className="product-button" href={product.url}>{`Open ${product.title.replace("KHILADI ","")}`}<ArrowRight/></a></article>;
+  const actionLabel=`Open ${product.title.replace("KHILADI ","")}`;
+  return <a className={`product product-link ${product.id}`} id={product.id} href={product.url} aria-label={actionLabel}><p className="product-label">{product.number} / {product.label}</p><div className="product-title"><span><MainIcon/></span><div><h2>{product.title}</h2><p>{product.description}</p></div></div><ul className="features">{product.features.map(([Icon,label])=><li key={label}><Icon/><span>{label}</span></li>)}</ul><span className="product-button">{actionLabel}<ArrowRight/></span></a>;
 }
 
 function App() {
@@ -38,3 +39,4 @@ function App() {
 }
 
 export default App;
+
